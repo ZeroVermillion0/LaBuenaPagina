@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrés Godoy Manriquez</title>
+    <style>
+        /* Estilos generales y fondo de cuadrícula estilo libreta/Canva */
+        body {
+            font-family: 'Times New Roman', sans-serif;
+            background-color: #d9d8d8;
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Menú de navegación superior */
+        nav {
+            background-color: white;
+            padding: 15px 0;
+            text-align: center;
+            border-bottom: 2px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #2c3e50;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Tarjetas estilo Canva */
+        .card {
+            background-color: white;
+            border: 1px solid #d1d5db;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            color: #1f2937;
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            color: #1f2937;
+            border-bottom: 2px solid #aa00ad;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Sección de Presentación */
+        .presentacion {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .info-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .profile-img-container {
+            position: relative;
+            width: 250px;
+            height: 250px;
+        }
+
+        /* Efecto de sombra desplazada para la foto */
+        .profile-img-container::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 100%;
+            height: 100%;
+            background-color: #aa00ad; /* Color azul de acento */
+            border-radius: 16px;
+            z-index: 0;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+            position: relative;
+            z-index: 1;
+            border: 2px solid #1f2937;
+        }
+
+        /* Botones */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border: 2px solid #1f2937;
+            color: #1f2937;
+            background-color: white;
+            transition: 0.2s;
+        }
+
+        .btn-primary {
+            background-color: #dd00ad;
+            color: white;
+            border-color: #dd00ad;
+        }
+
+        .btn:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .btn-primary:hover {
+            background-color: #8b006d;
+            color: white;
+        }
+
+        /* Redes Sociales */
+        .social-links a {
+            display: inline-block;
+            margin-right: 10px;
+            margin-top: 10px;
+            padding: 5px 15px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            text-decoration: none;
+            color: #4b5563;
+            font-size: 0.9em;
+        }
+
+        .social-links a:hover {
+            background-color: #e5e7eb;
+        }
+
+        /* Elementos de Formación */
+        .item-formacion {
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 4px solid #dd00ad;
+        }
+
+        .item-formacion h3 {
+            margin: 0 0 5px 0;
+            color: #1f2937;
+        }
+
+        .item-formacion p {
+            margin: 0;
+            color: #4b5563;
+        }
+
+        /* Hobbies (Grid de 3 columnas) */
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .hobby-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+        }
+
+        .hobby-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .hobby-info {
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            color: #1f2937;
+        }
+
+        /* Criptografía */
+        .crypto-section h3 {
+            color: #2563eb;
+            margin-top: 25px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #6b7280;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#formacion">Formación Académica</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#criptografia">Acerca de Criptografía</a>
+    </nav>
+
+    <div class="container">
+        
+        <!-- Tarjeta de Presentación -->
+        <div class="card presentacion">
+            <div class="info-text">
+                <h1>Andrés Godoy Manriquez</h1>
+                <p>Estudiante de Ingeniería en Sistemas Computacionales.</p>
+                
+                <div style="margin-top: 20px;">
+                    <a href="Andres Godoy - Curriculum Vitae.pdf" download="Andres Godoy - Curriculum Vitae.pdf" class="btn btn-primary">Descargar CV (PDF)</a>
+                    <a href="#llave-publica" class="btn">Mi llave Pública</a>
+                </div>
+
+                <div class="social-links" style="margin-top: 20px;">
+                    <a href="https://www.facebook.com/andy.vermillion.2025?locale=es_LA" target="_blank">Facebook</a>
+                    <a href="https://www.instagram.com/i.m_vermillion/" target="_blank">Instagram</a>
+                    <a href="https://www.linkedin.com/in/andr%C3%A9s-godoy-manriquez-962293349/" target="_blank">LinkedIn</a>
+                    <a href="https://www.roblox.com/es/users/231443066/profile" target="_blank">Roblox</a>
+                    <a href="https://wa.me/525573481007" target="_blank">WhatsApp</a>
+                </div>
+            </div>
+            
+            <div class="profile-img-container">
+                <img src="yo.png" alt="Andrés Godoy Manriquez" class="profile-img">
+            </div>
+        </div>
+
+        <!-- Formación Académica -->
+        <div id="formacion" class="card">
+            <h2>Formación Académica</h2>
+            
+            <div class="item-formacion">
+                <h3>Ingeniería en Sistemas Computacionales</h3>
+                <p>ESCOM "Escuela Superior de Cómputo" - IPN</p>
+                <p><em>2023 – Actualidad (7mo semestre)</em></p>
+            </div>
+
+            <div class="item-formacion">
+                <h3>Técnico en Informática</h3>
+                <p>CECyT 13 "Ricardo Flores Magón- IPN</p>
+                <p><em>2020 – 2023</em></p>
+            </div>
+        </div>
+
+        <!-- Correo Electrónico -->
+        <div id="contacto" class="card">
+            <h2>Contacto</h2>
+            <p style="font-size: 1.2em; font-weight: bold; color: #1f2937;">
+                <a href="mailto:godoymanriquezandres@gmail.com" style="color: inherit; text-decoration: none; border-bottom: 2px solid #f51b0b;">
+                    godoymanriquezandres@gmail.com
+                </a>
+            </p>
+            <p style="font-size: 1.2em; font-weight: bold; color: #1f2937;">
+                <a href="tel:+525573481007" style="color: inherit; text-decoration: none; border-bottom: 2px solid #f51b0b;">
+                    55 7348 1007
+                </a>
+            </p>
+        </div>
+
+        <!-- Hobbies -->
+        <div id="hobbies" class="card">
+            <h2>Hobbies</h2>
+            <div class="hobbies-grid">
+                <div class="hobby-card">
+                    <img src="https://www.avasam.com/wp-content/uploads/2023/10/Avasam_Reading_Book.jpg" alt="Leer">
+                    <div class="hobby-info">Leer</div>
+                </div>
+                <div class="hobby-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7X_V_hGcjXQdEM9XzankQSPADIFbo9EqMvs1Jh4baLGayxtHh3KdcCzE&s=10" alt="Prácticar Violín">
+                    <div class="hobby-info">Prácticar Violín</div>
+                </div>
+                <div class="hobby-card">
+                    <img src="https://hackernoon.imgix.net/images/1yeuFftUzKRT5YTxuVLPKYa7Uep2-en03c2x.png?auto=format%2Ccompress&w=3840" alt="Jugar Videojuegos">
+                    <div class="hobby-info">Jugar Videojuegos</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Acerca de Criptografía -->
+        <div id="criptografia" class="card crypto-section">
+            <h2>Acerca de Criptografía</h2>
+            
+            <p><strong>Concepto Teórico:</strong> La criptografía es la técnica que protege documentos y datos. Funciona a través de la utilización de cifras o códigos para escribir algo en secreto en documentos y datos confidenciales que circulan en redes locales o en internet. Su objetivo principal es garantizar la confidencialidad, integridad y autenticación de la información.</p>
+
+            <h3>Satoshi Nakamoto y Bitcoin</h3>
+            <p>Satoshi Nakamoto es el seudónimo utilizado por la persona o grupo de personas que crearon el protocolo <strong>Bitcoin</strong> y su software de referencia, Bitcoin Core. En octubre de 2008, Nakamoto publicó el artículo <em>"Bitcoin: A Peer-to-Peer Electronic Cash System"</em> (Bitcoin: Un sistema de efectivo electrónico usuario-a-usuario), describiendo una moneda digital criptográfica basada en una red descentralizada que no requería confianza en terceros (como bancos centrales).</p>
+            
+            <p><strong>El algoritmo y evento histórico:</strong><br>
+            Para hacer esto posible, Nakamoto ensambló magistralmente innovaciones criptográficas previas (como la criptografía asimétrica, las funciones hash SHA-256 y el concepto de prueba de trabajo o <em>Proof of Work</em>). El 3 de enero de 2009, Nakamoto extrajo (minó) el primer bloque de la red, conocido como el "Bloque Génesis", insertando en él un mensaje oculto: <em>"The Times 03/Jan/2009 Chancellor on brink of second bailout for banks"</em>. Este evento histórico no solo dio origen a la primera criptomoneda funcional de la historia, sino que demostró que el problema del "doble gasto" en entornos digitales podía resolverse mediante criptografía y tecnología Blockchain.</p>
+        </div>
+
+    </div>
+
+    <footer>
+    <p>© 2026 Andrés Godoy Manriquez.</p>
+</footer>
+
+</body>
+</html>
